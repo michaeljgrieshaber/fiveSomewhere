@@ -5,15 +5,19 @@ import { useEffect, useState } from "react";
 const allTimezones = "http://worldtimeapi.org/api/timezone/";
 const urlMyTime = "http://worldtimeapi.org/api/ip";
 
+let allArray = [];
+
 function App() {
   const [myTime, setmyTime] = useState("");
   const [myAbb, setmyAbb] = useState("");
   const [myTimezone, setmyTimezone] = useState("");
-  const [allTime, setAllTime] = useState("");
+
+  const [allTimeNames, setAllTimeNames] = useState("");
+  const [everything, setEverything] = useState([]);
 
   //get my time
   useEffect(() => {
-    async function myTime() {
+    async function myInfo() {
       try {
         const res = await axios.get(urlMyTime);
 
@@ -24,39 +28,42 @@ function App() {
         console.log(error);
       }
     }
-    myTime();
+    myInfo();
   }, []);
 
   //get all timezone names
   useEffect(() => {
-    async function allTime() {
+    async function allNames() {
       try {
         const res = await axios.get(allTimezones);
-        setAllTime(res.data);
+        setAllTimeNames(res.data);
       } catch (error) {
         console.log(error);
       }
     }
-    allTime();
+    allNames();
   }, []);
 
   useEffect(() => {
-    
-    for (let i = 0; i < allTime.length; i++) {
-      let allZonesURL = allTimezones + allTime[i];
+    for (let i = 0; i < allTimeNames.length; i++) {
+      let allZonesURL = allTimezones + allTimeNames[i];
 
       async function timeTime() {
         try {
           const res = await axios.get(allZonesURL);
           let test = res.data;
-          console.log(test);
+          allArray.push(test);
+          // console.log(test);
+          // setEverything(res.data.datetime);
         } catch (error) {
           console.log(error);
         }
       }
       timeTime();
     }
-  }, []);
+  }, [allTimeNames]);
+
+  console.log(allArray);
 
   return (
     <div className="App">
@@ -64,6 +71,8 @@ function App() {
       <div>
         my timezone is: {myAbb} | {myTimezone}
       </div>
+      <br />
+      <div>test</div>
     </div>
   );
 }
