@@ -1,12 +1,12 @@
 import "./App.css";
 import MyTime from "./Components/MyTime";
-import ZoneNames from "./Components/ZoneNames";
+import OtherTime from "./Components/OtherTime";
 
 function App() {
   return (
     <div className="App">
       <MyTime />
-      <ZoneNames />
+      <OtherTime />
     </div>
   );
 }
