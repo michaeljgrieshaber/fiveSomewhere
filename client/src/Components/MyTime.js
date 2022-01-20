@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const urlMyTime = "http://worldtimeapi.org/api/ip";
+const urlMyTime = "https://worldtimeapi.org/api/ip";
 
 export default function MyTime() {
   const [myTime, setmyTime] = useState("");

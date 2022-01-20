@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const someKey = process.env.REACT_APP_API_KEY;
-const URL = `http://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
-
-console.log(process.env.REACT_APP_API_KEY);
+const URL = `https://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
 
 export default function OtherTime() {
   const [zones, setZones] = useState([]);
