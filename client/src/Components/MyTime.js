@@ -25,7 +25,6 @@ export default function MyTime() {
         my timezone is: {myAbb} | {myTimezone}
       </div>
       <br />
-      <div>test</div>
     </div>
   );
 }

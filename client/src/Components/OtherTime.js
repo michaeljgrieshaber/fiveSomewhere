@@ -4,17 +4,6 @@ import axios from "axios";
 const URL =
   "http://api.timezonedb.com/v2.1/list-time-zone?key=BOIBS6ASBS1P&format=json";
 
-function test(time) {
-  let unix_timestamp = time;
-  let date = new Date(unix_timestamp * 1000);
-  let hours = date.getHours();
-  let minutes = "0" + date.getMinutes();
-  let seconds = "0" + date.getSeconds();
-  let formattedTime =
-    hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-  return formattedTime;
-}
-
 export default function OtherTime() {
   const [zones, setZones] = useState([]);
 
@@ -26,15 +15,40 @@ export default function OtherTime() {
     allInfo();
   }, [setZones]);
 
+  function convert(time) {
+    let unix_timestamp = time;
+    let date = new Date(unix_timestamp * 1000);
+    let hours = date.getUTCHours();
+    let indicator = "";
+    if (hours > 11) {
+      indicator = "PM";
+    } else {
+      indicator = "AM";
+    }
+    if (hours > 12) {
+      hours -= 12;
+    }
+    let minutes = "0" + date.getMinutes();
+    let seconds = "0" + date.getSeconds();
+    let formattedTime =
+      hours +
+      ":" +
+      minutes.substr(-2) +
+      ":" +
+      seconds.substr(-2) +
+      " " +
+      indicator;
+    return formattedTime;
+  }
+
   return (
     <div>
       <div>
         {zones.map((zone) => (
           <div key={zone.zoneName}>
-            <div>{zone.zoneName}</div>
-            <div>{test(zone.timestamp)}</div>
-            <div>{test(zone.gmtOffset)}</div>
-            <div>{test(zone.timestamp + zone.gmtOffset)}</div>
+            <div>Country: {zone.countryName}</div>
+            <div>Timezone: {zone.zoneName}</div>
+            <div>Time: {convert(zone.timestamp)}</div>
 
             <br />
           </div>
