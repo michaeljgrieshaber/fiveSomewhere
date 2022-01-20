@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const URL =
-  "http://api.timezonedb.com/v2.1/list-time-zone?key=BOIBS6ASBS1P&format=json";
+const someKey = process.env.REACT_APP_API_KEY;
+const URL = `http://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
+
+console.log(process.env.REACT_APP_API_KEY);
 
 export default function OtherTime() {
   const [zones, setZones] = useState([]);
@@ -41,14 +43,6 @@ export default function OtherTime() {
     return formattedTime;
   }
 
-  // zones.map((zone) => (
-  //   <div key={zone.zoneName}>
-  //     <div>Country: {zone.countryName}</div>
-  //     <div>Timezone: {zone.zoneName}</div>
-  //     <div>Time: {convert(zone.timestamp)}</div>
-  //   </div>
-  // ))
-
   return (
     <div>
       <div>
@@ -64,11 +58,3 @@ export default function OtherTime() {
     </div>
   );
 }
-
-// if (convert(zone.timestamp)) starts with "5" and ends with "PM"{
-//   <div>Country: {zone.countryName}</div>
-//   <div>Timezone: {zone.zoneName}</div>
-//   <div>Time: {convert(zone.timestamp)}</div>
-// } else {
-//   <div>nothing to see here</div>
-// }
