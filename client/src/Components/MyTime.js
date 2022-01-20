@@ -20,9 +20,9 @@ export default function MyTime() {
 
   return (
     <div>
-      <div>my time is: {myTime.substring(11, 19)}</div>
+      <div>My Time: {myTime.substring(11, 19)}</div>
       <div>
-        my timezone is: {myAbb} | {myTimezone}
+        My Timezone: {myAbb} | {myTimezone}
       </div>
       <br />
     </div>

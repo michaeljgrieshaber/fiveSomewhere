@@ -41,6 +41,14 @@ export default function OtherTime() {
     return formattedTime;
   }
 
+  // zones.map((zone) => (
+  //   <div key={zone.zoneName}>
+  //     <div>Country: {zone.countryName}</div>
+  //     <div>Timezone: {zone.zoneName}</div>
+  //     <div>Time: {convert(zone.timestamp)}</div>
+  //   </div>
+  // ))
+
   return (
     <div>
       <div>
@@ -49,7 +57,6 @@ export default function OtherTime() {
             <div>Country: {zone.countryName}</div>
             <div>Timezone: {zone.zoneName}</div>
             <div>Time: {convert(zone.timestamp)}</div>
-
             <br />
           </div>
         ))}
@@ -57,3 +64,11 @@ export default function OtherTime() {
     </div>
   );
 }
+
+// if (convert(zone.timestamp)) starts with "5" and ends with "PM"{
+//   <div>Country: {zone.countryName}</div>
+//   <div>Timezone: {zone.zoneName}</div>
+//   <div>Time: {convert(zone.timestamp)}</div>
+// } else {
+//   <div>nothing to see here</div>
+// }
