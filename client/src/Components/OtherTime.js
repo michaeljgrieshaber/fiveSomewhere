@@ -51,15 +51,25 @@ export default function OtherTime() {
     }
   }
 
+  function display(zone) {
+    if (convert(zone.timestamp)) {
+      return (
+        <div>
+          <div>Country: {zone.countryName}</div>
+          <div>Timezone: {zone.zoneName}</div>
+          <div>Time: {convert(zone.timestamp)}</div>
+          <br />
+        </div>
+      );
+    }
+  }
+
   return (
     <div>
       <div>
         {zones.map((zone) => (
           <div key={zone.zoneName}>
-            <div>Country: {zone.countryName}</div>
-            <div>Timezone: {zone.zoneName}</div>
-            <div>Time: {convert(zone.timestamp)}</div>
-            <br />
+            <div>{display(zone)}</div>
           </div>
         ))}
       </div>
