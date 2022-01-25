@@ -42,7 +42,13 @@ export default function OtherTime() {
       seconds.substr(-2) +
       " " +
       indicator;
-    return formattedTime;
+
+    if (
+      formattedTime.substring(0, 1) === "5" &&
+      formattedTime.substring(8, 11) === "PM"
+    ) {
+      return formattedTime;
+    }
   }
 
   return (
@@ -60,5 +66,3 @@ export default function OtherTime() {
     </div>
   );
 }
-
-// if (convert(zone.timestamp).substring(1,1) === 5 && convert(zone.timestamp).substring(8,11) === PM )
