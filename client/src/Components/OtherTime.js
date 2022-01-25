@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const someKey = process.env.REACT_APP_API_KEY;
-const corsAnywhere = "https://ancient-retreat-72922.herokuapp.com/";
+const corsAnywhere = "https://fivesomewheres.herokuapp.com/";
 const URL = `${corsAnywhere}https://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
+// const URL = `https://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
 
 export default function OtherTime() {
   const [zones, setZones] = useState([]);
@@ -57,3 +58,5 @@ export default function OtherTime() {
     </div>
   );
 }
+
+// if (convert(zone.timestamp).substring(1,1) === 5 && convert(zone.timestamp).substring(8,11) === PM )
