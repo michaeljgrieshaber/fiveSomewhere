@@ -20,6 +20,8 @@ export default function MyTime() {
 
   return (
     <div>
+      <div>It's 5 O'clock Somewhere!</div>
+      <br />
       <div>My Time: {myTime.substring(11, 19)}</div>
       <div>
         My Timezone: {myAbb} | {myTimezone}
