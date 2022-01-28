@@ -1,0 +1,16 @@
+.otherTimesContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.otherTimes {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 5px;
+  margin: 15px;
+  background-color: rgb(244, 241, 214);
+  max-width: 400px;
+  min-width: 400px;
+}

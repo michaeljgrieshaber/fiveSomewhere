@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "./MyTime.css";
 
 const urlMyTime = "https://worldtimeapi.org/api/ip";
 
@@ -44,8 +45,8 @@ export default function MyTime() {
   return (
     <div>
       <br />
-      <div>My Timezone: {myTime.timezone}</div>
-      <div>My Time: {convert(myTime.unixtime)}</div>
+      <div>Your Timezone: {myTime.timezone}</div>
+      <div>Your Time: {convert(myTime.unixtime)}</div>
       <br />
     </div>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { convert } from "./unix";
+import { convert } from "../unix";
 import "./OtherTime.css";
 
 // const someKey = process.env.REACT_APP_API_KEY;
@@ -24,11 +24,22 @@ export default function OtherTime() {
   function display(zone) {
     if (convert(zone.timestamp)) {
       return (
-        <div className="otherTimes">
-          <div>Country: {zone.countryName}</div>
-          <div>Timezone: {zone.zoneName}</div>
-          <div>Time: {convert(zone.timestamp)}</div>
-          <br />
+        <div className="otherTimesContainer">
+          <div className="otherTimes">
+            <div>Country: {zone.countryName}</div>
+            <div>Timezone: {zone.zoneName}</div>
+            <div>Time: {convert(zone.timestamp)}</div>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  function blank() {
+    if (zones.length === 0) {
+      return (
+        <div>
+          Loading Timezones Below. I assure you, it's 5 O'Clock somewhere
         </div>
       );
     }
@@ -36,8 +47,9 @@ export default function OtherTime() {
 
   return (
     <div>
-      <div>All the places where it's 5 O'Clock!</div>
+      <div>See below for where it's 5 O'Clock</div>
       <br />
+      <div>{blank()}</div>
       <div>
         {zones.map((zone) => (
           <div key={zone.zoneName}>
