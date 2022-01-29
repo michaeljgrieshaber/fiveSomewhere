@@ -43,11 +43,11 @@ export default function MyTime() {
   }, []);
 
   return (
-    <div>
-      <br />
-      <div>Your Timezone: {myTime.timezone}</div>
-      <div>Your Time: {convert(myTime.unixtime)}</div>
-      <br />
+    <div className="myTimesContainer">
+      <div className="myTimes">
+        <div>Your Timezone: {myTime.timezone}</div>
+        <div>Your Time: {convert(myTime.unixtime)}</div>
+      </div>
     </div>
   );
 }

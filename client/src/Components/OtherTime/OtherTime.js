@@ -47,7 +47,6 @@ export default function OtherTime() {
 
   return (
     <div>
-      <div>See below for where it's 5 O'Clock</div>
       <br />
       <div>{blank()}</div>
       <div>
