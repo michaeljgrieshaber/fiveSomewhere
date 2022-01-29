@@ -2,7 +2,7 @@ import "./App.css";
 import MyTime from "./Components/MyTime/MyTime";
 import OtherTime from "./Components/OtherTime/OtherTime";
 import Header from "./Components/Header/Header";
-import Video from "./Components/Video";
+import Video from "./Components/Video/Video";
 
 function App() {
   return (

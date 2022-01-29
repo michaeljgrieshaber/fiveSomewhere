@@ -10,10 +10,15 @@
   box-shadow: 1px 1px 1px 1px black;
   padding: 5px;
   margin: 15px;
-  /* background-color: rgb(244, 241, 214); */
   background-color: rgb(157, 66, 143);
   color: white;
-
   max-width: 400px;
   min-width: 400px;
+}
+
+@media only screen and (max-width: 600px) {
+  .myTimes {
+    max-width: 300px;
+    min-width: 300px;
+  }
 }
