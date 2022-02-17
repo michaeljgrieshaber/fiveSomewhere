@@ -3,12 +3,11 @@ import axios from "axios";
 import { convert } from "../unix";
 import "./OtherTime.css";
 
-// const someKey = process.env.REACT_APP_API_KEY;
-const someKey = "BOIBS6ASBS1P";
+const someKey = process.env.REACT_APP_API_KEY;
+// const someKey = "BOIBS6ASBS1P";
 
 const corsAnywhere = "https://fivesomewheres.herokuapp.com/";
 const URL = `${corsAnywhere}https://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
-// const URL = `https://api.timezonedb.com/v2.1/list-time-zone?key=${someKey}&format=json`;
 
 export default function OtherTime() {
   const [zones, setZones] = useState([]);
